@@ -8,6 +8,12 @@ $(document).ready(() => {
   $('#name').focus();
   //hide the "Other" job role input initially
   $('#other-title').hide();
+  //hide the information for "PayPal" and "Bitcoin" payment methods
+  $('#credit-card ~ div').each(function() {
+    $(this).hide();
+  });
+  //disable the "Select Payment Method" in the payment method select element
+  $('option[value="select_method"]').attr('disabled', true);
 });
 
 //"T-Shirts info" Section
@@ -73,7 +79,7 @@ $('#design').on('change', (e) => {
   Wednesday 9am-12pm: Build Tools Workshop
   Wednesday 1pm-4pm: npm Workshop
 */
-//select the 'activities' fieldset
+//select the 'activities' fieldset inputs
 $('.activities input').on('change', function() {
   //variable declarations
   const regex = /\d{3}/;
@@ -123,3 +129,28 @@ $('.activities input').on('change', function() {
     $('#total_cost').remove();
   }
 });
+
+//"Payment Info" section:
+//select the payment select element
+$('#payment').on('change', function() {
+  //payment_info = [credit card, PayPal, Bitcoin]
+  const payment_info = $('#payment ~ div');
+  //show the information that is appropriate for the selected payment method
+  if($(this).val() === 'credit card') { //credit card
+    $(payment_info[0]).show();
+    $(payment_info[1]).hide();
+    $(payment_info[2]).hide();
+  } else if($(this).val() === 'paypal') { //PayPal
+    $(payment_info[0]).hide();
+    $(payment_info[1]).show();
+    $(payment_info[2]).hide();
+  } else if($(this).val() === 'bitcoin') { //Bitcoin
+    $(payment_info[0]).hide();
+    $(payment_info[1]).hide();
+    $(payment_info[2]).show();
+  }
+})
+
+//Form Validation:
+//name field - can't be blank
+//$('#name').on('keyup', 'submit',)
