@@ -16,6 +16,16 @@ $(document).ready(() => {
   $('option[value="select_method"]').attr('disabled', true);
 });
 
+//"Job Role" section:
+//show the "Other" text input when user selects "other" job role
+$('#title').on('change', function(e) {
+  if($(e.target).val() === 'other') {
+    $('#other-title').show();
+  } else {
+    $('#other-title').hide();
+  }
+});
+
 //"T-Shirts info" Section
 //'change' event handler on the design menu to change the colors displayed in
 //the color menu to match the selected design
@@ -149,8 +159,27 @@ $('#payment').on('change', function() {
     $(payment_info[1]).hide();
     $(payment_info[2]).show();
   }
-})
+});
 
 //Form Validation:
 //name field - can't be blank
-//$('#name').on('keyup', 'submit',)
+$('#name').on('keyup', 'submit', function() {
+
+});
+//email field - must be a validly formatted email address (abc@example.com)
+$('#mail').on('keyup', 'submit', function() {
+
+});
+//user must select at least one checkbox under the "Register Activities"
+//section
+$('#activities input').on('submit', function() {
+
+});
+//if the user selects the credit card payment method, make sure that they have
+//a credit card number, zip code and CVV Number
+//credit card number must only be between 13-16 digits long
+//zip code must only be 5 digits long
+//cvv number must only be 3 digits long
+$('#payment').on('change', function() {
+
+});
