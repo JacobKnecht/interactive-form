@@ -142,7 +142,7 @@ $('.activities input').on('change', function() {
   //generate total cost
   if(total_cost > 0) {
     $('.activities').append('<div id="total_cost"></div>');
-    $('#total_cost').text(`Total: \$${total_cost}`)
+    $('#total_cost').text(`Total Cost: \$${total_cost}`)
     //delete error message if user tried to previously submit the form without
     //selecting an activity
     if($('#error-message').length) {
