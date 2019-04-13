@@ -1,3 +1,10 @@
+/*
+* Treehouse Techdegree Project 3 - Interactive Form
+* Jacob Knecht
+* 4/13/2019
+* Designed to achieve a grade of 'Exceeds Expectations'
+*/
+
 //global variable declarations
 let total_cost = 0;
 
